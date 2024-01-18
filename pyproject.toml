@@ -3,12 +3,12 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "<NAME>"
+name = "syncopate"
 version = "0.1.0"
 authors = [
     {name="Marcel Claramunt", email="marcel@moveread.com"}
 ]
-description = "<DESCRIPTION>"
+description = "Pure asynchronous orchestrations"
 dependencies = [
     
 ]
