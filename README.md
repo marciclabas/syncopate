@@ -120,5 +120,5 @@ def custom_combinator(executor: Executor[...]) -> Executor[...]:
 def executor(action: Action) -> Result:
     ...
 
-custom_logged_parallel_executor = custom_combinator(logged(parallel(logged))) # please don't give variables such long names :)
+custom_logged_parallel_executor = custom_combinator(logged(parallel(executor))) # please don't give variables such long names :)
 ```
