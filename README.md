@@ -22,7 +22,7 @@
 2. Define orchestration:
 
     ```python
-    def orchestration():
+    def orchestration() -> Generator[Action, Any, list[str]]:
         users = yield Fetch(container='users', num_items=3)
         for user in users:
             yield Greet(user)
@@ -99,10 +99,10 @@ def parallelize(executor: Executor[Action, Result]) -> Executor[Action | list[Ac
 You can then use the same simple action executor but yield multiple actions to it for simultaneous execution:
 
 ```python
-def parallel_orchestration():
+def parallel_orchestration() -> Generator[Action | list[Action], Any, list[str]]:
     users = yield Fetch(container='users', num_items=3)
-        yield [Greet(user) for user in users]
-        return users
+    yield [Greet(user) for user in users]
+    return users
 
 conduct(parallel_orchestration(), parallelize(executor))
 ```
