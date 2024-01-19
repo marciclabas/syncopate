@@ -7,7 +7,7 @@ Return = TypeVar('Return')
 Orchestration = Generator[Action, Result, Return]
 Executor = Callable[[Action], Result | Awaitable[Result]]
 
-async def conduct(
+async def run(
     orchestration: Generator[Action, Result, Return],
     executor: Callable[[Action], Result | Awaitable[Result]]
 ) -> Return:

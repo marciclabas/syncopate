@@ -6,7 +6,6 @@ from .. import Executor
 
 Action = TypeVar('Action')
 Result = TypeVar('Result')
-Return = TypeVar('Return')
 
 def parallelize(executor: Executor[Action, Result]) -> Executor[Action | list[Action], Result | list[Result]]:
     """Return an executor that accepts a list of actions and runs them concurrently"""

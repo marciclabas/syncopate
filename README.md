@@ -44,9 +44,9 @@
 4. Run!:
 
     ```python
-    from syncopate import conduct
+    import syncopate
 
-    await conduct(orchestration, executor)
+    await syncopate.run(orchestration, executor)
     # Fetching 3 from 'users'
     # Hi, User0!
     # Hi, User1!
@@ -104,7 +104,7 @@ def parallel_orchestration() -> Generator[Action | list[Action], Any, list[str]]
     yield [Greet(user) for user in users]
     return users
 
-conduct(parallel_orchestration(), parallelize(executor))
+syncopate.run(parallel_orchestration(), parallelize(executor))
 ```
 
 ### Composition
