@@ -1,4 +1,5 @@
 from typing import TypeVar, Generator, Callable, Awaitable
+import haskellian.asynch as hka
 
 Action = TypeVar('Action')
 Result = TypeVar('Result')
@@ -15,7 +16,7 @@ async def run(
     try:
         action = next(orchestration)
         while True:
-            result = await executor(action)
+            result = await hka.wait(executor(action))
             action = orchestration.send(result)
     except StopIteration as s:
         return s.value
