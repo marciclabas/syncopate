@@ -1,6 +1,6 @@
 # Syncopate
 
-> Tools for higher-order, pure orchestrations
+> Tools for higher-order, pure orchestrations. Inspired by Azure Durable Functions
 
 ## Usage
 
